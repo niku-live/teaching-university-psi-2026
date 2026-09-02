@@ -9,11 +9,12 @@ Teams need to decide on basic things such as team name, what they are planning t
 - [ ] **Team leader** - Who will coordinate the team?
 - [ ] **Company name** - Your team's "company" identity
 - [ ] **Product name** - What will you call your application?
+- [ ] **End-to-end user scenario** - Define one named user journey that the initial application can demonstrate from start to finish
 - [ ] **Feature roadmap** - List of functionalities (MVP) for:
   - Alpha version (basic core features)
   - Beta version (extended features) 
   - Final version (complete application)
-- [ ] **Technology stack** - Programming languages, frameworks, databases, etc.
+- [ ] **Technology stack** - Select an ASP.NET web application stack with a backend-dominant design; the UI technology can be chosen freely
 
 ### 2. Development Environment
 - [ ] **Install required tools** - IDEs, compilers, package managers
@@ -26,6 +27,7 @@ Teams need to decide on basic things such as team name, what they are planning t
   - Team member names and roles
   - Technology decisions and justification
   - Setup and installation instructions
+- [ ] **Recommended: configure branch protection** - Require pull request reviews before merging into the default branch
 - [ ] **Grant permissions to lecturer** - Add lecturer as collaborator
 
 ### 4. Initial Project Structure

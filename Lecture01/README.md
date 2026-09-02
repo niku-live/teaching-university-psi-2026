@@ -97,6 +97,14 @@ The **Dist.** row shows each student's total as a percentage of the **second-hig
    - Lecturer may cap maximum possible mark (e.g., "70% max due to missing X and Y")
    - Teams can disagree and return next week with requested fixes
 
+## Course Grading
+
+- **Laboratory assignments** are worth a total of **5.0 points**: Lab Assignment #1 (1.5), Lab Assignment #2 (1.5), and Lab Assignment #3 (2.0).
+- **Written exam** is worth up to **5.0 points**.
+- The exam can be taken only after all three laboratory assignments have been settled and at least **3.0 points** have been collected during the semester.
+- The exam is passed by earning at least **1.5 out of 5.0 points**.
+- Up to **1.0 additional point** may be awarded for outstanding performance during the course or contributions to the course material.
+
 ## Lab Assignment Requirements
 
 Full details are in the [Lecture 01 material](https://github.com/smagurauskas/software-engineering/blob/main/01-intro.qmd). Summary of the per-assignment requirements:
