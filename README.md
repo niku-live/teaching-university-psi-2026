@@ -56,7 +56,7 @@ For team project inspiration, see [PROGRAMS.md](PROGRAMS.md) which contains sugg
 
 ## Demo Project
 
-🚀 **Live Demonstrations**: Follow along with language features and development practices using the [PSI2026-Playground repository](https://github.com/niku-live/PSI2026-Playground)
+🚀 **Live Demonstrations**: Follow along with language features and development practices using the [PSI2026-Playground repository](https://github.com/niku-live/teaching-university-psi-2026-playground)
 
 This repository contains code examples that will be used during lectures to demonstrate various programming concepts, language features, and development techniques.
 
