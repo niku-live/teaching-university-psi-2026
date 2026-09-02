@@ -150,6 +150,14 @@ Covers material from lectures 11-14.
 1. Application is hosted in some environment and is accessible through a public domain name. All students in the group must be able to explain how the deployment setup works.
 2. A metrics observability tool (e.g., Prometheus, Grafana, OpenTelemetry) is integrated and has meaningful dashboards and alerts set up.
 
+## AI Usage Policy
+
+Use of AI tools (e.g., GitHub Copilot, ChatGPT) is **allowed and even encouraged** during the course, following the [Vilnius University guidelines on AI usage](https://www.vusa.lt/lt/vilnius-university-guidelines-).
+
+- Students **own their code** - AI is a tool, not a substitute for understanding your submission.
+- You must be able to **explain and understand** any AI-generated code you submit, including its design and trade-offs.
+- Knowledge of related subjects (as covered in lectures and assignments) is still expected - AI usage does not excuse gaps in understanding during individual questioning or the exam.
+
 ## Creating Your First Project
 
 ### Getting Started with Development
