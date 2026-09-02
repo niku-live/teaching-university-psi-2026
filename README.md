@@ -50,7 +50,7 @@ The examples can also be opened and run using [JetBrains Rider](https://www.jetb
 
 ## Project Ideas
 
-For team project inspiration, see [PROGRAMS.md](PROGRAMS.md) which contains suggested collaborative entertainment app ideas.
+For team project inspiration, see [PROGRAMS.md](Lecture01/PROGRAMS.md) which contains project ideas and information about the current and previous year's themes.
 
 ## Theory Lecture Materials
 

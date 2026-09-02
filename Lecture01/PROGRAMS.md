@@ -2,9 +2,9 @@
 
 ## Overview
 
-**General Theme**: Collaborative entertainment applications
+**General Theme**: Anything you want
 
-The entertainment value should come from multiple users participating together in shared activities. Focus on real-time interaction and social engagement.
+This year, projects may focus on any theme.
 
 ## Lab Assignment Requirements
 
@@ -24,6 +24,12 @@ For more detailed project information and additional ideas, visit:
 [Software Engineering Course Materials: Lecture 01](https://github.com/smagurauskas/software-engineering/blob/main/01-intro.qmd)
 
 ## Previous Year Projects
+
+### Previous Year General Theme
+
+**General Theme**: Collaborative entertainment applications
+
+The entertainment value should come from multiple users participating together in shared activities. Focus on real-time interaction and social engagement.
 
 Examples of projects developed by previous year's teams:
 
