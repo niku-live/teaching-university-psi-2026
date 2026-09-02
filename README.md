@@ -46,6 +46,8 @@ All code examples provided as Visual Studio solutions were tested and compiled u
 - [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 - [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
 
+The examples can also be opened and run using [JetBrains Rider](https://www.jetbrains.com/rider/).
+
 ## Project Ideas
 
 For team project inspiration, see [PROGRAMS.md](PROGRAMS.md) which contains suggested collaborative entertainment app ideas.

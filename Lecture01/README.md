@@ -10,6 +10,8 @@ All course information can be found at [MIF VMA Software engineering course (202
 
 This includes deciding on your team structure, application theme, technology stack, and setting up your development environment.
 
+Read the [Tools Usage Notes](TOOLS-USAGE.md) before configuring your shared Git repository.
+
 ### Teams Setup
 
 - All assignments will be done in **teams of 4-5 people**
