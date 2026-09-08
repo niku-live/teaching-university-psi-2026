@@ -1,38 +1,24 @@
 # Homework from Lecture 01
 
-Teams need to decide on basic things such as team name, what they are planning to do, and other foundational elements.
+Apply today's "template &rarr; product" walkthrough to your own team repository.
 
 ## Team TO-DO List
 
-### 1. Core Decisions
-- [ ] **Theme of application** - What problem will your app solve?
-- [ ] **Team leader** - Who will coordinate the team?
-- [ ] **Company name** - Your team's "company" identity
-- [ ] **Product name** - What will you call your application?
-- [ ] **End-to-end user scenario** - Define one named user journey that the initial application can demonstrate from start to finish
-- [ ] **Feature roadmap** - List of functionalities (MVP) for:
-  - Alpha version (basic core features)
-  - Beta version (extended features) 
-  - Final version (complete application)
-- [ ] **Technology stack** - Select an ASP.NET web application stack with a backend-dominant design; the UI technology can be chosen freely
+### 1. Make the template your own
 
-### 2. Development Environment
-- [ ] **Install required tools** - IDEs, compilers, package managers
-- [ ] **Verify setup** - Ensure all team members can use the chosen tech stack
+- [ ] Replace the default README with one describing your actual product (problem, users, tech stack, setup instructions)
+- [ ] Write a `ROADMAP.md` (or a section in the README) listing Alpha / Beta / Final scope, matching the [Lab Assignment requirements](../Lecture00/README.md#lab-assignment-requirements)
+- [ ] Replace the placeholder landing page / home screen with real copy about your product
+- [ ] Replace the sample data model and endpoint (e.g. `WeatherForecast`) with your first real domain model and one working API endpoint
+- [ ] Delete unused template boilerplate (demo pages/components you won't use)
 
-### 3. Repository Setup
-- [ ] **Create GitHub repository**
-- [ ] **Write comprehensive README.md** that includes:
-  - Project description and goals
-  - Team member names and roles
-  - Technology decisions and justification
-  - Setup and installation instructions
-- [ ] **Recommended: configure branch protection** - Require pull request reviews before merging into the default branch
-- [ ] **Grant permissions to lecturer** - Add lecturer as collaborator
+### 2. Pull Request Practice
 
-### 4. Initial Project Structure
-- [ ] **Create project from templates** - Use appropriate starter templates
-- [ ] **Test build process** - Verify each team member can:
-  - Clone the repository
-  - Build the project successfully
-  - Run the application locally
+- [ ] Open your first real PR for one of the changes above
+- [ ] Have at least one teammate review it and leave at least one meaningful comment
+- [ ] Practice reviewing with the [Pull Requests theory material](https://github.com/smagurauskas/software-engineering/blob/main/01-pull-requests.qmd) in mind: focus on readability, scope, and naming
+
+### 3. Come prepared
+
+- [ ] Be ready to show your customized landing page and roadmap next lab class
+- [ ] Bring one thing from Theory Lecture 1 that's still unclear, for Q&A

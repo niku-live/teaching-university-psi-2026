@@ -50,7 +50,7 @@ The examples can also be opened and run using [JetBrains Rider](https://www.jetb
 
 ## Project Ideas
 
-For team project inspiration, see [PROGRAMS.md](Lecture01/PROGRAMS.md) which contains project ideas and information about the current and previous year's themes.
+For team project inspiration, see [PROGRAMS.md](Lecture00/PROGRAMS.md) which contains project ideas and information about the current and previous year's themes.
 
 ## Theory Lecture Materials
 
@@ -64,4 +64,5 @@ This repository contains code examples that will be used during lectures to demo
 
 ## Lectures
 
-- [Lecture 01](Lecture01/README.md) - Course Introduction, Teams & Evaluation Process
+- [Lecture 00](Lecture00/README.md) - Course Introduction, Teams & Evaluation Process
+- [Lecture 01](Lecture01/README.md) - Reviewing Theory Lecture 1 (.NET/C# Fundamentals & Pull Requests), Turning Your Template Into a Product
