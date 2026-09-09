@@ -1,0 +1,115 @@
+---
+title: "Lecture 1 Review: .NET/C# Fundamentals"
+verify: none # no executable cells, code shown for live discussion only
+---
+
+## Today's Review Agenda
+
+1. "Compiled" vs "interpreted" - where does C# actually sit?
+2. Value vs reference types: what really gets copied?
+3. Stack vs heap: the exception that trips people up
+4. Boxing: when a value type sneaks onto the heap
+
+## "Is C# Compiled or Interpreted?"
+
+::: {.fragment}
+Trick question - it's **both**, in two separate steps:
+:::
+
+::: {.fragment}
+1. `csc`/Roslyn compiles your C# source to **IL** (Intermediate Language) ahead of time
+2. The **CLR** JIT-compiles that IL to native machine code **at runtime**, method by method, the first time each method runs
+:::
+
+::: {.fragment}
+So: statically compiled to IL, then JIT-compiled (not interpreted line-by-line) to machine code.
+:::
+
+***
+## Value vs Reference: What Gets Copied?
+
+```csharp
+struct Point { public int X, Y; }
+class Box { public int X, Y; }
+
+var p1 = new Point { X = 1 };
+var p2 = p1;
+p2.X = 99;
+// p1.X is still 1 - copying a struct copies its fields
+
+var b1 = new Box { X = 1 };
+var b2 = b1;
+b2.X = 99;
+// b1.X is now 99 - copying a class copies the reference, not the object
+```
+
+::: {.fragment}
+**Question**: What does `p1.X` print? What does `b1.X` print?
+:::
+
+***
+## Stack vs Heap: The Exception
+
+::: {.fragment}
+Common shortcut: "value types live on the stack, reference types live on the heap."
+:::
+
+::: {.fragment}
+Closer to the truth: **a value type lives wherever it's declared.**
+:::
+
+```csharp
+class Line
+{
+    public Point Start; // a Point struct, but Line is a class
+    public Point End;
+}
+
+var line = new Line();
+```
+
+::: {.fragment}
+`line` (the reference) lives on the stack. But `line.Start` and `line.End` - even though `Point` is a
+struct - live **on the heap**, because they're fields of a heap-allocated `Line` object.
+:::
+
+***
+## Boxing: When a Value Type Sneaks Onto the Heap
+
+```csharp
+int number = 42;          // lives on the stack
+object boxed = number;    // "boxed" - a heap copy is made, boxed holds a reference to it
+int unboxed = (int)boxed; // "unboxed" - copied back to a stack value
+```
+
+::: {.fragment}
+Boxing/unboxing happens implicitly whenever a value type is used where an `object` (or an interface
+it implements) is expected - e.g. passing an `int` to a method that takes `object`, or adding it to a
+non-generic `ArrayList`. It's a hidden allocation + copy, which is one reason generic collections
+(`List<int>` instead of `ArrayList`) matter for performance.
+:::
+
+***
+## Pull Requests: From Theory to Practice
+
+::: {.fragment}
+Starting this week, your lab work goes through real pull requests. A few things that are easy to
+miss on a first read of the theory:
+:::
+
+::: {.fragment}
+- "Approve", "Request changes", and a plain "Comment" are different review outcomes on GitHub - only
+  "Request changes" blocks a merge (if branch protection requires it).
+:::
+::: {.fragment}
+- A PR description is not optional busywork - it's the fastest way for a reviewer to know *what* to
+  look for and *why*, before reading a single line of diff.
+:::
+::: {.fragment}
+- "Small PRs" doesn't mean "trivial PRs" - it means one reviewable idea per PR, even if that idea
+  touches several files.
+:::
+
+## Questions?
+
+Bring anything from [Theory Lecture 1](https://github.com/smagurauskas/software-engineering/blob/main/01-intro.qmd) that's still unclear - that's exactly what this review is for.
