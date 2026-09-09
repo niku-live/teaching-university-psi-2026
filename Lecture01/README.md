@@ -6,8 +6,6 @@ This practice lecture was mostly hands-on: a live walkthrough turning the generi
 
 Each team then presented the items they'd prepared from that TO-DO list.
 
-We did **not** go through the [Theory Lecture 1](https://github.com/smagurauskas/software-engineering/blob/main/01-intro.qmd) material (.NET/C# fundamentals, Pull Requests) in class this week, beyond a brief mention of `.gitignore`. If you want to review that material anyway, see [Additional Info for the Curious](#additional-info-for-the-curious) below and the slides in [dotnet-review.qmd](dotnet-review.qmd).
-
 ## Practical Tips for This Week
 
 - Set up **branch protection** on your team repository, requiring at least one review before merging (see your [Lecture 0 TO-DO list](../Lecture00/TODO-LIST.md)).
