@@ -6,13 +6,6 @@ This practice lecture was mostly hands-on: a live walkthrough turning the generi
 
 Each team then presented the items they'd prepared from that TO-DO list.
 
-## Practical Tips for This Week
-
-- Set up **branch protection** on your team repository, requiring at least one review before merging (see your [Lecture 0 TO-DO list](../Lecture00/TODO-LIST.md)).
-- Agree on **line endings** across operating systems before anyone commits code - see [Tools Usage Notes](../Lecture00/TOOLS-USAGE.md) from Lecture 0.
-- Pick an IDE and confirm the whole team can build the project with it: Visual Studio 2022, Visual Studio Code with C# Dev Kit, or JetBrains Rider all work.
-- Write PR descriptions that explain *what* and *why*, not just *what* - this satisfies the Lab Assignment #1 pull request requirement and makes review much faster.
-
 ## Step-by-Step Tutorial: From Template to Your Project
 
 The live demo took the generic ASP.NET Core + React starter template and turned it into the start of a real product, using the course's own [PSI 2026 Playground](https://github.com/niku-live/teaching-university-psi-2026-playground) as the example - turning the plain template into **StudySpot**, a small app for finding and hosting study sessions.
