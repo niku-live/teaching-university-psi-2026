@@ -8,12 +8,13 @@ This practice lecture reviews [Theory Lecture 2](https://github.com/smagurauskas
 
 ## Step-by-Step Tutorial: Continuing StudySpot
 
-**Proposed** focus (still Alpha - see the [ROADMAP](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/01/ROADMAP.md), which spans Lecture 1 through Lecture 6): pick up one or more of the still-open Alpha items that connect to this week's web services material, most naturally:
+This week's focus (still Alpha - see the [ROADMAP](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/01/ROADMAP.md), which spans Lecture 1 through Lecture 6): pick up the still-open Alpha items that connect directly to this week's web services material:
 
-- Create a study session from the actual UI, not just the API (currently API-only, demonstrated via browser/curl/REST Client).
-- Add API documentation (Swagger/OpenAPI), tying directly into this week's ASP.NET material.
+- Complete full CRUD on the API: add `PUT`/`DELETE /api/studysessions/{id}` alongside the existing `GET`/`POST`, in `StudySessionsController`.
+- Add API documentation (Swagger/OpenAPI via `Microsoft.AspNetCore.OpenApi` + `Swashbuckle.AspNetCore`), tying directly into this week's ASP.NET material.
+- Create a study session from the actual UI, not just the API (previously API-only, demonstrated via browser/curl/REST Client) - a real form in `StudySessions.js`.
 
-Reference Guide: [PSI 2026 Playground - `lectures/02` branch](https://github.com/niku-live/teaching-university-psi-2026-playground/tree/lectures/02) will have the end result once ready.
+Reference Guide: [PSI 2026 Playground PR #3](https://github.com/niku-live/teaching-university-psi-2026-playground/pull/3) (`lectures/02-draft` &rarr; `lectures/02`) has the end result.
 
 ## Homework
 
