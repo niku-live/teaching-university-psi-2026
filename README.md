@@ -66,3 +66,4 @@ This repository contains code examples that will be used during lectures to demo
 
 - [Lecture 00](Lecture00/README.md) - Course Introduction, Teams & Evaluation Process
 - [Lecture 01](Lecture01/README.md) - Reviewing Theory Lecture 1 (.NET/C# Fundamentals & Pull Requests), Turning Your Template Into a Product
+- [Lecture 02](Lecture02/README.md) - Reviewing Theory Lecture 2 (Web Services & ASP.NET APIs), Continuing StudySpot
