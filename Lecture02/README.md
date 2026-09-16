@@ -16,7 +16,7 @@ This week's focus (still Alpha - see the [ROADMAP](https://github.com/niku-live/
 - Add API documentation (Swagger/OpenAPI via `Microsoft.AspNetCore.OpenApi` + `Swashbuckle.AspNetCore`), tying directly into this week's ASP.NET material.
 - Create a study session from the actual UI, not just the API (previously API-only, demonstrated via browser/curl/REST Client) - a real form in `StudySessions.js`.
 
-Reference Guide: [PSI 2026 Playground PR #3](https://github.com/niku-live/teaching-university-psi-2026-playground/pull/3) (`lectures/02-draft` &rarr; `lectures/02`) has the end result.
+Reference Guide: [PSI 2026 Playground PR #3](https://github.com/niku-live/teaching-university-psi-2026-playground/pull/3) (`lectures/02-draft` &rarr; `lectures/02`) has the end result. Start with [WALKTHROUGH-02.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/02/WALKTHROUGH-02.md) for the exact step-by-step (assumes you've already done [WALKTHROUGH-01.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/01/WALKTHROUGH.md) from last week) - see [WALKTHROUGHS.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/02/WALKTHROUGHS.md) for the full index.
 
 ## Testing APIs: `.http` Files
 
