@@ -1,0 +1,29 @@
+### Get all posts
+GET https://jsonplaceholder.typicode.com/posts
+
+### Get a single post by ID
+GET https://jsonplaceholder.typicode.com/posts/1
+
+### Create a new post
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+  "title": "foo",
+  "body": "bar",
+  "userId": 1
+}
+
+### Update a post by ID
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "foo",
+  "body": "bar",
+  "userId": 1
+}
+
+### Delete a post by ID
+DELETE https://jsonplaceholder.typicode.com/posts/1

@@ -1,0 +1,8 @@
+### Get Pikachu
+GET https://pokeapi.co/api/v2/pokemon/pikachu
+
+### Get Ditto
+GET https://pokeapi.co/api/v2/pokemon/ditto
+
+### Non-existing Pokemon (expect 404 Not Found)
+GET https://pokeapi.co/api/v2/pokemon/does-not-exist

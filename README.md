@@ -37,6 +37,15 @@ LINQ examples are provided as `*.linq` files for use with LINQPad.
 **Requirements**: 
 - [LINQPad tool](https://www.linqpad.net/Download.aspx) - for creating, testing, and running LINQ queries
 
+#### HTTP Request Files (*.http)
+Some lectures include `*.http` files - plain-text HTTP request definitions (`###`-separated requests) used to test REST APIs directly, without typing curl commands or clicking through a separate app by hand.
+
+**Requirements**:
+- Visual Studio Code with the [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - adds a "Send Request" link above each request in a `.http` file; the response opens in a side panel.
+- Visual Studio 2022 (17.6+) and JetBrains Rider both have built-in equivalents (Visual Studio's own `.http` editor with Endpoints Explorer; Rider's bundled HTTP Client), so no extension is required with either.
+
+**Alternative**: [Postman](https://www.postman.com/downloads/) is a popular standalone GUI app for testing APIs - request collections, environments, and a full request-builder interface, at the cost of a separate app instead of living in your editor next to the code. `.http` files stay in plain text and version-controlled alongside your project; if your team prefers Postman instead, its collections can be exported/imported to share with teammates the same way.
+
 #### Visual Studio Solutions (*.sln)
 All code examples provided as Visual Studio solutions were tested and compiled using **Visual Studio 2022** with the following workloads:
 
