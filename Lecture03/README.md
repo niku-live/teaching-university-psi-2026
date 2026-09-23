@@ -2,12 +2,15 @@
 
 ## What was discussed
 
+Continued StudySpot in the playground repo:
+
 - Added client-side validation to StudySpot's "Host a new study session" form.
 - Showed why client-side validation alone isn't enough: sent invalid data (an empty course, a session dated in the past, zero seats) straight to the API with a direct HTTP request, bypassing the form entirely - it succeeded, since nothing on the server checked anything at that point.
 - Added server-side validation to the `StudySession` model (`DataAnnotations` + a custom `IValidatableObject` check, enforced automatically by the existing `[ApiController]` attribute, no controller changes needed) and sent the same request again - this time it was rejected with `400 Bad Request`.
 - A CSS/flexbox pass on the sessions table and form layout.
 - Added four repository process artifacts to the playground repo: a pull request template, `docs/definition-of-done.md`, `CONTRIBUTING.md`, and `.github/CODEOWNERS`.
-- General HTML/CSS fundamentals: what a CSS class is, and how the cascade/hierarchy works (which rule wins when several could apply) - demonstrated with a couple of small CSS changes on StudySpot: first a red background on the whole sessions table, then narrowed down to just the table headers.
+
+Also covered general HTML/CSS fundamentals: what a CSS class is, and how the cascade/hierarchy works (which rule wins when several could apply) - demonstrated with a couple of small CSS changes on StudySpot: first a red background on the whole sessions table, then narrowed down to just the table headers.
 
 ## Step-by-Step Tutorial: Validating StudySpot
 
