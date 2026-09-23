@@ -2,9 +2,12 @@
 
 ## What was discussed
 
-This practice lecture ran the planned client-vs-server validation demo on StudySpot end to end, nothing skipped: added client-side validation to the "Host a new study session" form, then deliberately broke it by sending the same invalid data (an empty course, a session dated in the past, zero seats) straight to the API with a direct HTTP request - bypassing the form entirely - and it succeeded, because nothing on the server checked anything yet. Added server-side validation to the `StudySession` model (`DataAnnotations` + a custom `IValidatableObject` check, enforced automatically via the existing `[ApiController]` attribute, no controller changes needed) and re-ran the exact same attack to show it now gets rejected with `400 Bad Request`. Followed with the CSS/flexbox pass on the form and table, and four repository process artifacts: a pull request template, `docs/definition-of-done.md`, `CONTRIBUTING.md`, and `.github/CODEOWNERS`.
-
-Beyond the plan, we also spent time on general HTML/CSS fundamentals: what a CSS class is, and how the cascade/hierarchy works (which rule wins when several could apply). Demonstrated this live with a couple of small, throwaway CSS changes on StudySpot - first a red background applied to the whole sessions table, then narrowed down to just the table headers - to make the effect of selector scope visible rather than abstract.
+- Added client-side validation to StudySpot's "Host a new study session" form.
+- Showed why client-side validation alone isn't enough: sent invalid data (an empty course, a session dated in the past, zero seats) straight to the API with a direct HTTP request, bypassing the form entirely - it succeeded, since nothing on the server checked anything at that point.
+- Added server-side validation to the `StudySession` model (`DataAnnotations` + a custom `IValidatableObject` check, enforced automatically by the existing `[ApiController]` attribute, no controller changes needed) and sent the same request again - this time it was rejected with `400 Bad Request`.
+- A CSS/flexbox pass on the sessions table and form layout.
+- Added four repository process artifacts to the playground repo: a pull request template, `docs/definition-of-done.md`, `CONTRIBUTING.md`, and `.github/CODEOWNERS`.
+- General HTML/CSS fundamentals: what a CSS class is, and how the cascade/hierarchy works (which rule wins when several could apply) - demonstrated with a couple of small CSS changes on StudySpot: first a red background on the whole sessions table, then narrowed down to just the table headers.
 
 ## Step-by-Step Tutorial: Validating StudySpot
 
