@@ -2,7 +2,9 @@
 
 ## What was discussed
 
-_TBD - to be filled in after the lecture_
+This practice lecture ran the planned client-vs-server validation demo on StudySpot end to end, nothing skipped: added client-side validation to the "Host a new study session" form, then deliberately broke it by sending the same invalid data (an empty course, a session dated in the past, zero seats) straight to the API with a direct HTTP request - bypassing the form entirely - and it succeeded, because nothing on the server checked anything yet. Added server-side validation to the `StudySession` model (`DataAnnotations` + a custom `IValidatableObject` check, enforced automatically via the existing `[ApiController]` attribute, no controller changes needed) and re-ran the exact same attack to show it now gets rejected with `400 Bad Request`. Followed with the CSS/flexbox pass on the form and table, and four repository process artifacts: a pull request template, `docs/definition-of-done.md`, `CONTRIBUTING.md`, and `.github/CODEOWNERS`.
+
+Beyond the plan, we also spent time on general HTML/CSS fundamentals: what a CSS class is, and how the cascade/hierarchy works (which rule wins when several could apply). Demonstrated this live with a couple of small, throwaway CSS changes on StudySpot - first a red background applied to the whole sessions table, then narrowed down to just the table headers - to make the effect of selector scope visible rather than abstract.
 
 ## Step-by-Step Tutorial: Validating StudySpot
 
@@ -22,4 +24,4 @@ Do the same for your own team repository this week: add client-side validation f
 
 ## Homework
 
-TBD.
+No homework was assigned this week. Applying the same client-side + server-side validation pattern (and the process artifacts) to your own team's project, as described above, is worth doing on your own time, but nothing is due specifically because of this lecture.
