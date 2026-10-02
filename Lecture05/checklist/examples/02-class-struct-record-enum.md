@@ -4,7 +4,16 @@
 
 ## What it means
 
-Use each kind of type for the job it is good at - and make **at least one of your types immutable** (its values cannot change after construction).
+Your team must create **at least four different types of its own - one `class`, one `struct`, one `record` and one `enum`** - and use each for the job it is good at. One type cannot count for two kinds, and types that come from .NET or a library do not count. Also make **at least one of your types immutable** (its values cannot change after construction).
+
+| Kind | Your type in the project | Where it is used |
+|------|--------------------------|------------------|
+| `class` | | |
+| `struct` | | |
+| `record` | | |
+| `enum` | | |
+
+Fill this table in before the presentation; every team member should be able to point to each row.
 
 | Type | Kind | Equality | Typical use |
 |------|------|----------|-------------|
@@ -111,7 +120,8 @@ if (session.Status == 1) { /* ??? */ }
 
 ## Common mistakes
 
-- Making everything a class (the checklist wants to see each kind used with a reason).
+- Making everything a class (the checklist wants all four kinds, each used with a reason).
+- Declaring a type only to tick the box - a struct or enum that nothing uses does not count.
 - Using a struct "because it is faster". Large structs are slower; use structs for small value-like data.
 - Assuming the struct constructor always runs: `default(Rating)` bypasses it and gives `Value = 0`.
 - Using `==` on a plain struct: it does not compile unless you define it (records have it built in).

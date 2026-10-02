@@ -11,7 +11,7 @@ This lecture prepares you for **Lab Assignment #1 (Deadline 1)**: **2026-10-21 2
 - [**Checklist**](checklist/checklist.qmd) - every requirement, what is checked, what every team member must be able to explain, and a short good/bad example for each. Render or preview it with `quarto preview checklist/checklist.qmd` (see the main [README](../README.md) for Quarto setup).
 - [**Detailed examples**](checklist/examples/README.md) - one page per requirement with more good/bad examples, common mistakes, and questions you may be asked:
   1. [Interactive UI and an end-to-end scenario](checklist/examples/01-user-interface.md)
-  2. [`class`, `struct`, `record`, `enum` (one immutable)](checklist/examples/02-class-struct-record-enum.md)
+  2. [`class`, `struct`, `record`, `enum` (4 own types, one immutable)](checklist/examples/02-class-struct-record-enum.md)
   3. [Properties](checklist/examples/03-properties.md)
   4. [Named and optional arguments](checklist/examples/04-named-optional-arguments.md)
   5. [Extension methods](checklist/examples/05-extension-methods.md)

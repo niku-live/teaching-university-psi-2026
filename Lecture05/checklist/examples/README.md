@@ -7,7 +7,7 @@ Longer good/bad examples for each requirement of the [Deadline 1 checklist](../c
 | # | Requirement | Page |
 |---|-------------|------|
 | 1 | Interactive UI and an end-to-end scenario | [01-user-interface.md](01-user-interface.md) |
-| 2 | `class`, `struct`, `record`, `enum` (one immutable) | [02-class-struct-record-enum.md](02-class-struct-record-enum.md) |
+| 2 | `class`, `struct`, `record`, `enum` (4 own types, one immutable) | [02-class-struct-record-enum.md](02-class-struct-record-enum.md) |
 | 3 | Properties in `struct` and `class` | [03-properties.md](03-properties.md) |
 | 4 | Named and optional arguments | [04-named-optional-arguments.md](04-named-optional-arguments.md) |
 | 5 | Extension methods | [05-extension-methods.md](05-extension-methods.md) |

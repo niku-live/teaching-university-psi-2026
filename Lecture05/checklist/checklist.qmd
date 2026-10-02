@@ -76,7 +76,8 @@ Each requirement below has three parts:
 
 **What we check**
 
-- At least one **meaningfully** used class, struct, record and enum of your own.
+- You created **at least 4 different types of your own**: one `class`, one `struct`, one `record` and one `enum`. One type cannot count for two kinds, and types from .NET or libraries do not count.
+- Each of the four is **meaningfully** used by the application, not just declared.
 - At least one of your types is **immutable**.
 
 **👥 Every team member** can point to each of these in the code and explain why it is that kind of type; knows the differences between class, struct and record; knows what an enum is and what an enum with `[Flags]` is.
@@ -334,7 +335,7 @@ public string  Topic{get;set;}
 | # | Requirement | Where in the code (file + line) | Who explains it |
 |---|-------------|----------------------------------|-----------------|
 | 1 | Interactive UI, end-to-end scenario | | |
-| 2 | class / struct / record / enum (one immutable) | | |
+| 2 | 4 own types: class, struct, record, enum (one immutable) | | |
 | 3 | Properties (class and struct) | | |
 | 4 | Named and optional arguments | | |
 | 5 | Extension method | | |
