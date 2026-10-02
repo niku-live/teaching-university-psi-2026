@@ -2,11 +2,11 @@
 
 ## What was discussed
 
-_TBD - to be filled in after the lecture_
+This lecture wasn't delivered as a live class session - attendance was too low across the scheduled slots to run it as planned. The material below is still real and complete (the code, the tutorial, the companion walkthrough all exist and work), so it's published here for anyone who wants to study it on their own time, rather than as a recap of something taught in the room.
 
 ## Step-by-Step Tutorial: C# Language Features, and a Real Timezone Bug
 
-This week's theory covered [C# Basics](https://github.com/smagurauskas/software-engineering/blob/main/04-csharp-basics.qmd) (types, operators, generics, enums, records, interfaces), [SOLID](https://github.com/smagurauskas/software-engineering/blob/main/04-solid.qmd), and [Time](https://github.com/smagurauskas/software-engineering/blob/main/04-time.qmd) (`DateTime` vs `DateTimeOffset`, wall-time pitfalls). We applied the C# Basics and Time material live to StudySpot; SOLID's Open/Closed principle frames one of the smaller design choices along the way, without a separate refactor of its own.
+This week's theory covered [C# Basics](https://github.com/smagurauskas/software-engineering/blob/main/04-csharp-basics.qmd) (types, operators, generics, enums, records, interfaces), [SOLID](https://github.com/smagurauskas/software-engineering/blob/main/04-solid.qmd), and [Time](https://github.com/smagurauskas/software-engineering/blob/main/04-time.qmd) (`DateTime` vs `DateTimeOffset`, wall-time pitfalls). This tutorial applies the C# Basics and Time material to StudySpot; SOLID's Open/Closed principle frames one of the smaller design choices along the way, without a separate refactor of its own.
 
 This week's focus (still Alpha - see the [ROADMAP](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/03/ROADMAP.md), which spans Lecture 1 through Lecture 6): close out every remaining item in Alpha's "Requirement coverage still needed" list in one sitting, since this week's theory happens to be exactly the set of C# language features that list asks for:
 
@@ -22,4 +22,4 @@ Do the same for your own team repository this week: check your `ROADMAP.md`'s re
 
 ## Homework
 
-No homework was assigned this week. Closing out any of your own team's project's remaining Alpha requirement items (record/enum/named-and-optional-arguments/extension method/LINQ/standard interface), and auditing your own date/time handling as described above, is worth doing on your own time, but nothing is due specifically because of this lecture.
+No homework is formally due because of this lecture. Since it wasn't delivered live and most of the class hasn't seen this material, going through the Step-by-Step Tutorial above (or the companion [WALKTHROUGH-04.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/04-draft/WALKTHROUGH-04.md)) on your own time is recommended rather than required - it closes out the rest of your own project's Alpha requirement checklist (record/enum/named-and-optional-arguments/extension method/LINQ/standard interface), and the `DateTime`-vs-`DateTimeOffset` audit is worth doing regardless of whether your own project has hit the same bug yet.
