@@ -77,3 +77,4 @@ This repository contains code examples that will be used during lectures to demo
 - [Lecture 01](Lecture01/README.md) - Reviewing Theory Lecture 1 (.NET/C# Fundamentals & Pull Requests), Turning Your Template Into a Product
 - [Lecture 02](Lecture02/README.md) - Reviewing Theory Lecture 2 (Web Services & ASP.NET APIs), Continuing StudySpot
 - [Lecture 03](Lecture03/README.md) - Reviewing Theory Lecture 3 (Web UI & Agile), Validating StudySpot
+- [Lecture 04](Lecture04/README.md) - Reviewing Theory Lecture 4 (C# Basics, SOLID & Time), C# Language Features and a Real Timezone Bug (not delivered live due to low attendance - published for self-study)
