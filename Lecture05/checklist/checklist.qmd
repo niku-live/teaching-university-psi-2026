@@ -1,0 +1,394 @@
+---
+title: "Lab Assignment #1 (Deadline 1) - Review Checklist"
+format:
+  html:
+    toc: true
+---
+
+## 📅 General info about the deadline
+
+> ⚠️ **IMPORTANT DEADLINE**: 2026-10-21 20:00 (Vilnius time)
+
+- Maximum points if completed by the deadline: **1.5**
+- Late submission: **20%** reduction of the maximum mark for each week late.
+- Minimum expectation: **at least 75%** of the requirements implemented - quality of implementation matters, not just presence.
+- Covers material from lectures 1-6.
+
+## 🎤 Presentation
+
+- You prepared an actual presentation: a **working app demo** (slides are optional, but a running application is not) and you are ready to present it to the other teams.
+- Every team member can present the tasks they did. Expect that every member will be asked to talk during or after the presentation.
+- You can show every implemented requirement **in your code**, not just in the running app.
+- I may pick a requirement and a random team member and ask them to find it in the code, explain it, and make a small change on-site.
+
+## ⭐ Goals
+
+### 🎯 Official goal
+
+Develop a **web** application using the material covered in lectures 1-6:
+
+- You have a **working** (alpha) version of your app, and at least one user scenario can be demonstrated end to end.
+- The app has a functional UI (front-end), an API (back-end), and the front-end makes meaningful calls to the API.
+- You worked as a team and can prove it: commits, pull requests, reviews, working app.
+- **Every** team member knows and understands the material from lectures 1-6.
+
+### 🎯 Additional (unofficial) goal
+
+Understand how to use GitHub and code as a team, prepare a foundation for future work, learn to review your own code and to take feedback when you get it.
+
+## ✅ Requirements
+
+Each requirement below has three parts:
+
+- **What we check** - what must exist in your code.
+- **👥 Every team member** - what each person must be able to explain or write on-site.
+- **Good vs bad** - a short example. Each has a **Read more** link to a separate page with more examples and explanations.
+
+> 💡 The word **meaningfully** is on purpose. A feature used only to tick the box (a wrapper that adds nothing, a struct that should be a class) does not count.
+
+---
+
+### ⚙️ 1. The application can be interacted with using *some* sort of interface
+
+**What we check**
+
+- The application has a user interface (it is not just an API or a console app).
+- The interface is interactive: the user presses elements and gets results.
+- There is at least one user scenario that can be demonstrated **end to end** (UI → API → result shown back in the UI).
+
+**👥 Every team member** can show the scenario and say which parts of the code it touches.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: the UI's "RSVP" button calls the API, the API changes data, the UI shows the new state.
+// POST /api/studysessions/5/rsvp  ->  204 No Content  ->  UI re-fetches and shows "4 seats left"
+
+// ❌ BAD: a page that only displays hard-coded data and a button that does nothing.
+// <button onClick={() => {}}>RSVP</button>
+```
+
+📖 [Read more](examples/01-user-interface.md)
+
+---
+
+### ⚙️ 2. Your own `class`, `struct`, `record` and `enum` (one type must be immutable)
+
+**What we check**
+
+- You created **at least 4 different types of your own**: one `class`, one `struct`, one `record` and one `enum`. One type cannot count for two kinds, and types from .NET or libraries do not count.
+- Each of the four is **meaningfully** used by the application, not just declared.
+- At least one of your types is **immutable**.
+
+**👥 Every team member** can point to each of these in the code and explain why it is that kind of type; knows the differences between class, struct and record; knows what an enum is and what an enum with `[Flags]` is.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: an immutable record - a read-only projection with value equality, no identity.
+public record StudySessionSummary(string Course, string Topic, DateTimeOffset StartsAt, int SeatsAvailable);
+
+// ✅ GOOD: an enum replaces "magic" numbers scattered across the code.
+public enum SessionStatus { Scheduled, Full }
+
+// ✅ GOOD: struct used for simple, small, immutable data.
+public struct StudySessionKey { public int Id { get; } public StudySessionKey(int id) => Id = id; }
+
+// ❌ BAD: a struct with a lot of data and mutable fields - it should be a class.
+public struct StudySession { public int Id; public string Topic; public string Notes; /* ... */ }
+```
+
+📖 [Read more](examples/02-class-struct-record-enum.md)
+
+---
+
+### ⚙️ 3. Property usage in `struct` and `class`
+
+**What we check**
+
+- At least one **meaningfully** used property in a class and in a struct.
+
+**👥 Every team member** can point to properties and explain them; knows all kinds (normal property, auto-implemented property, indexer) and can write them on-site.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: validation on the way in, a computed property on the way out.
+public SessionStatus Status => SeatsAvailable > 0 ? SessionStatus.Scheduled : SessionStatus.Full;
+
+// ✅ GOOD: an auto-implemented property with both getter and setter, no need to write backing fields manually.
+public string Topic { get; set; }
+
+// ✅ GOOD: a property with custom getter and setter logic, when setter logic requires validation.
+private int _seatsAvailable;
+public int SeatsAvailable { get { return _seatsAvailable; } set { if (value < 0) throw new ArgumentOutOfRangeException(nameof(value)); _seatsAvailable = value; } }
+
+// ❌ BAD: a property that is just a public field wearing a costume,
+// next to a hand-written Get/Set method pair that should have been a property.
+private string _topic;
+public string GetTopic() => _topic;
+public void SetTopic(string value) => _topic = value;
+```
+
+📖 [Read more](examples/03-properties.md)
+
+---
+
+### ⚙️ 4. Named and optional arguments
+
+**What we check**
+
+- At least one **meaningfully** used named argument and at least one **meaningfully** used optional argument.
+
+**👥 Every team member** can point to them, explain why they are there, and write them on-site.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: parameter naming explains the role of the argument being passed.
+// declaration:Upcoming(DateTimeOffset? asOf = null)
+sessions.UpcomingOnly(asOf: someDate);
+
+// ✅ GOOD: using named argument for the optional parameter, skipping the first optional parameter.
+// declaration:Filter(string? course = null, int minSeatsAvailable)
+sessions.Filter(minSeatsAvailable: 2);
+
+// ❌ BAD: optional parameters used to avoid thinking, and named arguments on a one-parameter call.
+void Save(string a = "", string b = "", string c = "", bool d = false, bool e = true) { }
+Save(a: "x");
+```
+
+📖 [Read more](examples/04-named-optional-arguments.md)
+
+---
+
+### ⚙️ 5. Extension methods
+
+**What we check**
+
+- At least one **meaningfully** used extension method.
+
+**👥 Every team member** can point to it, explain why it is an extension method, and write one on-site.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: extends a type you do not own (IEnumerable<T>) with domain behavior.
+public static IEnumerable<StudySession> UpcomingOnly(this IEnumerable<StudySession> sessions, DateTimeOffset? asOf = null)
+    => sessions.Where(s => s.StartsAt > (asOf ?? DateTimeOffset.UtcNow));
+
+// ❌ BAD: an extension on your own class - you own it, so just add a method to it.
+public static void PrintInfo(this StudySession session) => Console.WriteLine(session.Topic);
+```
+
+📖 [Read more](examples/05-extension-methods.md)
+
+---
+
+### ⚙️ 6. Iterating through collections the right way
+
+**What we check**
+
+- At least one **meaningfully** used iteration through a collection, using the recommended constructs.
+
+**👥 Every team member** can point to it and explain why that kind of loop (or LINQ) was chosen.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: foreach when you only read; no index needed.
+foreach (var session in sessions)
+{
+    Console.WriteLine(session.Topic);
+}
+
+// ✅ GOOD: using for when you need the index.
+for (int i = 0; i < sessions.Count; i++)
+{
+    Console.WriteLine($"| {i} | {sessions[i].Topic} |");
+}
+
+// ❌ BAD: using for when a foreach would suffice.
+for (int i = 0; i < sessions.Count; i++)
+{
+    Console.WriteLine(sessions[i].Topic);
+}
+
+// ❌ BAD: modifying a collection while iterating it (throws InvalidOperationException).
+foreach (var session in sessions)
+{
+    if (session.SeatsAvailable == 0) sessions.Remove(session);
+}
+```
+
+📖 [Read more](examples/06-collection-iteration.md)
+
+---
+
+### ⚙️ 7. Using a stream to load data
+
+**What we check**
+
+- At least one **meaningfully** used stream reading operation (file, web response, socket...).
+- The stream is wrapped in a `using` statement/declaration.
+
+**👥 Every team member** can point to it, and knows streams, stream readers and `using`.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: read line by line, disposed automatically, not blocking a thread.
+await using var stream = File.OpenRead("sessions.csv");
+using var reader = new StreamReader(stream);
+while (await reader.ReadLineAsync() is { } line)
+{
+    // parse line
+}
+
+// ❌ BAD: never disposed - the file stays locked until the garbage collector gets to it.
+var reader = new StreamReader("sessions.csv");
+var text = reader.ReadToEnd();
+```
+
+📖 [Read more](examples/07-streams.md)
+
+---
+
+### ⚙️ 8. LINQ to Objects (methods or query syntax)
+
+**What we check**
+
+- At least one **meaningfully** used LINQ to Objects query.
+- Where LINQ is *not* used in a scenario where it fits, you can justify it.
+
+**👥 Every team member** can point to it and write a query on-site, in both method syntax and query syntax.
+
+> 📝 LINQ to Entities (queries against a database through Entity Framework) is **not** LINQ to Objects. LINQ to Objects queries in-memory collections.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: filter, project, order - one readable pipeline.
+var topics = sessions
+    .Where(s => s.SeatsAvailable > 0)
+    .OrderBy(s => s.StartsAt)
+    .Select(s => s.Topic)
+    .ToList();
+
+// ✅ GOOD: a query that meaningfully filters, orders, and projects the collection.
+var availableTopics = (from s in sessions
+                       where s.SeatsAvailable > 0
+                       orderby s.StartsAt
+                       select s.Topic).ToList();
+
+// ❌ BAD: a query that rebuilds what a property already gives you.
+var count = sessions.Select(s => s).Where(s => true).ToList().Count();
+```
+
+📖 [Read more](examples/08-linq-to-objects.md)
+
+---
+
+### ⚙️ 9. At least one standard .NET interface
+
+(`IEnumerable`, `IComparable`, `IComparer`, `IEquatable`, `IEnumerator`, etc.)
+
+**What we check**
+
+- At least one **meaningfully** implemented standard .NET interface.
+
+**👥 Every team member** can point to it and knows what `IComparable`/`IComparer`/`IEquatable` and `IEnumerable`/`IEnumerator` are for.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: the type defines its own natural ordering, so List<T>.Sort() just works.
+public class StudySession : IComparable<StudySession>
+{
+    public int CompareTo(StudySession? other) => other is null ? 1 : StartsAt.CompareTo(other.StartsAt);
+}
+
+List<StudySession> sessions = new List<StudySession>();
+sessions.Add(new StudySession { StartsAt = DateTime.Now, SeatsAvailable = 10 });
+sessions.Add(new StudySession { StartsAt = DateTime.Now.AddHours(-1), SeatsAvailable = 5 });
+sessions.Sort();
+
+// ❌ BAD: implements the interface to satisfy the checklist, then throws.
+public int CompareTo(StudySession? other) => throw new NotImplementedException();
+
+// ❌ BAD: implements the interface but does not use it meaningfully.
+public class StudySession : IComparable<StudySession>
+{
+    public int CompareTo(StudySession? other) => 0;
+}
+// but List<StudySession>.Sort() never used anywhere
+
+```
+
+📖 [Read more](examples/09-standard-interfaces.md)
+
+---
+
+### ⚙️ 10. Pull requests and reviews
+
+**What we check**
+
+- **All** changes reach `main` through pull requests, with no direct pushes.
+- Every PR has a description explaining **what** was done and **why**.
+- **Every** team member authored at least **3 merged PRs** and reviewed at least **3** PRs of teammates.
+- A PR counts as reviewed only with **meaningful** comments and discussion - "LGTM" alone does not count, and at least some comments should lead to changes.
+
+**👥 Every team member** can open any of their PRs and explain it.
+
+**Good vs bad**
+
+```text
+✅ GOOD review comment:  "Filter() is called twice per request here - can we call it once and reuse the result? Line 42."
+❌ BAD review comment:   "looks good"
+```
+
+📖 [Read more](examples/10-pull-requests-and-reviews.md)
+
+---
+
+### ⚙️ 11. Uniform coding style
+
+**What we check**
+
+- One consistent coding style across the whole project (formatting, naming, file layout).
+- It may be enforced by tooling, not by hoping: `.editorconfig`, `dotnet format`, a formatter on the front-end.
+
+**👥 Every team member** knows how to apply the formatter and where the team's rules are written down.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: PascalCase members, camelCase locals, one brace style - everywhere.
+public int SeatsAvailable { get; set; }
+
+// ❌ BAD: three styles in one file because three people wrote it.
+public int seats_available { get; set; }
+public string  Topic{get;set;}
+```
+
+📖 [Read more](examples/11-coding-style.md)
+
+---
+
+## 🗒️ Self-check before the presentation
+
+| # | Requirement | Where in the code (file + line) | Who explains it |
+|---|-------------|----------------------------------|-----------------|
+| 1 | Interactive UI, end-to-end scenario | | |
+| 2 | 4 own types: class, struct, record, enum (one immutable) | | |
+| 3 | Properties (class and struct) | | |
+| 4 | Named and optional arguments | | |
+| 5 | Extension method | | |
+| 6 | Collection iteration | | |
+| 7 | Stream reading with `using` | | |
+| 8 | LINQ to Objects | | |
+| 9 | Standard .NET interface | | |
+| 10 | PRs: 3 authored + 3 reviewed per member | | |
+| 11 | Uniform coding style | | |
+
+> 🤖 AI tools are allowed, but you **own** your code: every member must be able to explain and defend any code they submit, including AI-generated code.
