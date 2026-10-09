@@ -75,7 +75,6 @@ File.OpenRead(@"C:\Users\Tomas\Desktop\sessions.csv");
 ## Common mistakes
 
 - Hard-coded absolute paths. Use a relative path, configuration, or the app's content root.
-- Forgetting the file is copied to the output directory (`Copy to Output Directory` in the project) and failing only on other machines.
 - No handling for missing/malformed files: decide whether to throw, log or return an empty result, and be able to say why.
 - Using `using` on something that must outlive the method (returning a disposed stream).
 

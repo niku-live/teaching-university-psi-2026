@@ -91,6 +91,9 @@ public record StudySessionSummary(string Course, string Topic, DateTimeOffset St
 // ✅ GOOD: an enum replaces "magic" numbers scattered across the code.
 public enum SessionStatus { Scheduled, Full }
 
+// ✅ GOOD: struct used for simple, small, immutable data.
+public struct StudySessionKey { public int Id { get; } public StudySessionKey(int id) => Id = id; }
+
 // ❌ BAD: a struct with a lot of data and mutable fields - it should be a class.
 public struct StudySession { public int Id; public string Topic; public string Notes; /* ... */ }
 ```
@@ -112,6 +115,13 @@ public struct StudySession { public int Id; public string Topic; public string N
 ```csharp
 // ✅ GOOD: validation on the way in, a computed property on the way out.
 public SessionStatus Status => SeatsAvailable > 0 ? SessionStatus.Scheduled : SessionStatus.Full;
+
+// ✅ GOOD: an auto-implemented property with both getter and setter, no need to write backing fields manually.
+public string Topic { get; set; }
+
+// ✅ GOOD: a property with custom getter and setter logic, when setter logic requires validation.
+private int _seatsAvailable;
+public int SeatsAvailable { get { return _seatsAvailable; } set { if (value < 0) throw new ArgumentOutOfRangeException(nameof(value)); _seatsAvailable = value; } }
 
 // ❌ BAD: a property that is just a public field wearing a costume,
 // next to a hand-written Get/Set method pair that should have been a property.
@@ -135,8 +145,12 @@ public void SetTopic(string value) => _topic = value;
 **Good vs bad**
 
 ```csharp
-// ✅ GOOD: asOf is optional (defaults to "now"); naming skips the first optional parameter.
+// ✅ GOOD: parameter naming explains the role of the argument being passed.
+// declaration:Upcoming(DateTimeOffset? asOf = null)
 sessions.UpcomingOnly(asOf: someDate);
+
+// ✅ GOOD: using named argument for the optional parameter, skipping the first optional parameter.
+// declaration:Filter(string? course = null, int minSeatsAvailable)
 sessions.Filter(minSeatsAvailable: 2);
 
 // ❌ BAD: optional parameters used to avoid thinking, and named arguments on a one-parameter call.
@@ -186,6 +200,18 @@ public static void PrintInfo(this StudySession session) => Console.WriteLine(ses
 foreach (var session in sessions)
 {
     Console.WriteLine(session.Topic);
+}
+
+// ✅ GOOD: using for when you need the index.
+for (int i = 0; i < sessions.Count; i++)
+{
+    Console.WriteLine($"| {i} | {sessions[i].Topic} |");
+}
+
+// ❌ BAD: using for when a foreach would suffice.
+for (int i = 0; i < sessions.Count; i++)
+{
+    Console.WriteLine(sessions[i].Topic);
 }
 
 // ❌ BAD: modifying a collection while iterating it (throws InvalidOperationException).
@@ -249,6 +275,12 @@ var topics = sessions
     .Select(s => s.Topic)
     .ToList();
 
+// ✅ GOOD: a query that meaningfully filters, orders, and projects the collection.
+var availableTopics = (from s in sessions
+                       where s.SeatsAvailable > 0
+                       orderby s.StartsAt
+                       select s.Topic).ToList();
+
 // ❌ BAD: a query that rebuilds what a property already gives you.
 var count = sessions.Select(s => s).Where(s => true).ToList().Count();
 ```
@@ -276,8 +308,21 @@ public class StudySession : IComparable<StudySession>
     public int CompareTo(StudySession? other) => other is null ? 1 : StartsAt.CompareTo(other.StartsAt);
 }
 
+List<StudySession> sessions = new List<StudySession>();
+sessions.Add(new StudySession { StartsAt = DateTime.Now, SeatsAvailable = 10 });
+sessions.Add(new StudySession { StartsAt = DateTime.Now.AddHours(-1), SeatsAvailable = 5 });
+sessions.Sort();
+
 // ❌ BAD: implements the interface to satisfy the checklist, then throws.
 public int CompareTo(StudySession? other) => throw new NotImplementedException();
+
+// ❌ BAD: implements the interface but does not use it meaningfully.
+public class StudySession : IComparable<StudySession>
+{
+    public int CompareTo(StudySession? other) => 0;
+}
+// but List<StudySession>.Sort() never used anywhere
+
 ```
 
 📖 [Read more](examples/09-standard-interfaces.md)
@@ -311,7 +356,7 @@ public int CompareTo(StudySession? other) => throw new NotImplementedException()
 **What we check**
 
 - One consistent coding style across the whole project (formatting, naming, file layout).
-- It is enforced by tooling, not by hoping: `.editorconfig`, `dotnet format`, a formatter on the front-end.
+- It may be enforced by tooling, not by hoping: `.editorconfig`, `dotnet format`, a formatter on the front-end.
 
 **👥 Every team member** knows how to apply the formatter and where the team's rules are written down.
 

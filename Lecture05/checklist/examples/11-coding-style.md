@@ -4,7 +4,7 @@
 
 ## What it means
 
-The project reads as if one person wrote it, no matter who did. That means agreed rules for naming, formatting and structure, **enforced by tools** rather than by memory.
+The project reads as if one person wrote it, no matter who did. That means agreed rules for naming, formatting and structure. And best if **enforced by tools** rather than by memory.
 
 ## ✅ Good
 
