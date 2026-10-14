@@ -13,7 +13,7 @@ This week's theory covered [Dependency Injection](https://github.com/smagurauska
 
 This week's focus (still Alpha - see the [ROADMAP](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/06/ROADMAP.md), which spans Lecture 1 through Lecture 6): take `StudySessionsController`, which currently owns the data, the filtering and ordering rules, the rating rule, *and* the HTTP handling, and split it up:
 
-- **Single Responsibility**: move the rules into a `StudySessionService`. The controller shrinks to routing, model binding and status codes.
+- **Single Responsibility**: move the rules into a `StudySessionService` (behind an `IStudySessionService` interface the controller depends on). The controller shrinks to routing, model binding and status codes.
 - **Dependency Inversion + Dependency Injection**: hide where sessions are stored behind an `IStudySessionRepository` (with an in-memory implementation for now), pass it to the service through the constructor, and register both in `Program.cs`.
 - **Liskov Substitution**: a short "gotcha" showing why every implementation of that interface must honor the same contract - today's in-memory repository would hide a bug that a database-backed one would expose.
 - **Open/Closed, Interface Segregation**: pointed out in existing code (`Filter`, `IEnumerable<T>` parameters), not refactored.
