@@ -79,3 +79,4 @@ This repository contains code examples that will be used during lectures to demo
 - [Lecture 03](Lecture03/README.md) - Reviewing Theory Lecture 3 (Web UI & Agile), Validating StudySpot
 - [Lecture 04](Lecture04/README.md) - Reviewing Theory Lecture 4 (C# Basics, SOLID & Time), C# Language Features and a Real Timezone Bug (not delivered live due to low attendance - published for self-study)
 - [Lecture 05](Lecture05/README.md) - Deadline 1 (Lab Assignment #1) review checklist and detailed examples
+- [Lecture 06](Lecture06/README.md) - SOLID in Practice: a service, a repository and Dependency Injection for StudySpot (next week is Deadline 1)
