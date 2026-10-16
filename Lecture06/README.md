@@ -5,7 +5,13 @@
 
 ## What was discussed
 
-_TBD - to be filled in after the lecture_
+Part of this lecture was used for one team's Deadline 1 presentation, so the practice part was kept short and focused on SOLID applied to real StudySpot code (the full step-by-step is below):
+
+- Started from `StudySessionsController`, which owned the data, the filtering, ordering and rating rules, and the HTTP handling all at once, and asked what would have to change for a database, a new rule or a test.
+- **Single Responsibility**: extracted `IStudySessionService` and `StudySessionService`, so the controller only handles routing, model binding and status codes. The app was built and run at this checkpoint to show nothing behaved differently.
+- **Dependency Inversion + Dependency Injection**: moved the data behind `IStudySessionRepository` with an in-memory implementation, passed it to the service through the constructor, and registered both in `Program.cs` (with a note on why the repository is a singleton and the service is scoped).
+- **Liskov Substitution**: swapped in a repository that returns copies and showed that the service keeps working only because every change ends with an explicit `repository.Update(...)` - every implementation of an interface has to honor the same contract.
+- Open/Closed and Interface Segregation were pointed out in the existing code, together with the warning that over-applying SOLID can make code worse.
 
 ## Step-by-Step Tutorial: SOLID in Practice - a Service, a Repository, and Dependency Injection
 
