@@ -20,12 +20,12 @@ This week's focus (still Alpha - see the [ROADMAP](https://github.com/niku-live/
 
 It is a refactor: no endpoint changes behavior. It also gives Beta's Entity Framework lecture a natural place to plug in later - only the repository will need to change.
 
-Reference Guide: [PSI 2026 Playground PR for Lecture 6](https://github.com/niku-live/teaching-university-psi-2026-playground/tree/lectures/06-draft) (`lectures/06-draft` &rarr; `lectures/06`) has the end result. Start with [WALKTHROUGH-06.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/06-draft/WALKTHROUGH-06.md) for the exact step-by-step (assumes you've already done [WALKTHROUGH-04.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/04/WALKTHROUGH-04.md); Lecture 5 had no walkthrough) - see [WALKTHROUGHS.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/06-draft/WALKTHROUGHS.md) for the full index.
+Reference Guide: [PSI 2026 Playground PR #9](https://github.com/niku-live/teaching-university-psi-2026-playground/pull/9) (`lectures/06-draft` &rarr; `lectures/06`) has the end result. Start with [WALKTHROUGH-06.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/06/WALKTHROUGH-06.md) for the exact step-by-step (assumes you've already done [WALKTHROUGH-04.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/04/WALKTHROUGH-04.md); Lecture 5 had no walkthrough) - see [WALKTHROUGHS.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/06/WALKTHROUGHS.md) for the full index.
 
 ## Homework
 
 Not mandatory, and nothing here counts toward Deadline 1 - **focus on your Deadline 1 submission first**. For the curious, after you've submitted:
 
-- Look at your own team's controllers. Can you find one class that has more than one reason to change (data, rules and HTTP handling mixed together)? Try the same service + repository split from [WALKTHROUGH-06.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/06-draft/WALKTHROUGH-06.md) on it.
+- Look at your own team's controllers. Can you find one class that has more than one reason to change (data, rules and HTTP handling mixed together)? Try the same service + repository split from [WALKTHROUGH-06.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/06/WALKTHROUGH-06.md) on it.
 - Write a second implementation of your repository interface (for example one that returns copies, as in step 6 of the walkthrough) and check that your service still behaves correctly with it.
 - Read [Lecture 4's SOLID slides](https://github.com/smagurauskas/software-engineering/blob/main/04-solid.qmd), including the warning about over-applying the principles, and decide whether the split was worth it for your project's size.
