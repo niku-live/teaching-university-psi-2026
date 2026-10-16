@@ -2,7 +2,7 @@
 
 ## What was discussed
 
-_TBD - to be filled in after the lecture_
+Went through the Deadline 1 (Lab Assignment #1) requirements one by one, using the checklist below: what each requirement means, what will be checked during the review, and what every team member must be able to explain about their own project. The detailed examples show a good and a bad way to meet each requirement.
 
 ## Deadline 1 Review Checklist
 
@@ -26,4 +26,4 @@ Most good examples come from the real StudySpot code in the [playground reposito
 
 ## Homework
 
-TBD
+No homework - focus on your Deadline 1 submission. Go through the checklist with your team and make sure every member can explain each requirement in your own project.
