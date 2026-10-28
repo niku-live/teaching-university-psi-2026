@@ -1,0 +1,272 @@
+---
+title: "Lab Assignment #2 (Deadline 2) - Review Checklist"
+format:
+  html:
+    toc: true
+---
+
+## 📅 General info about the deadline
+
+> ⚠️ **IMPORTANT DEADLINE**: 2026-11-18 20:00 (Vilnius time) - week 11
+
+- Maximum points if completed by the deadline: **1.5**
+- Late submission: **20%** reduction of the maximum mark for each week late.
+- Minimum expectation: **at least 75%** of the requirements implemented - quality of implementation matters, not just presence.
+- Covers material from lectures 7-10.
+- **Deadline 1 doesn't disappear.** The app still has to work end to end, and what you showed at Deadline 1 (your own types, LINQ, extension methods, ...) must still be there. If you promised to fix something at Deadline 1, it will be checked now.
+
+## 🎤 Presentation
+
+- A **working app demo** again (slides are optional, a running application is not), now with the data in a real database: restart the app and the data is still there.
+- Every team member can present the tasks they did. Expect that every member will be asked to talk during or after the presentation.
+- You can show every implemented requirement **in your code**, not just in the running app, and run your tests and show the coverage report.
+- I may pick a requirement and a random team member and ask them to find it in the code, explain it, and make a small change on-site.
+
+## ⭐ Goals
+
+### 🎯 Official goal
+
+Continue developing the app as a team, using the material covered in lectures 7-10: testing, persistence and ORM, generics, threading and async.
+
+### 🎯 Additional (unofficial) goal
+
+Start using a database and testing the project. Deepen the functionality of the application while being creative.
+
+## ✅ Requirements
+
+Each requirement below has three parts, as in the Deadline 1 checklist:
+
+- **What we check** - what must exist in your code.
+- **👥 Every team member** - what each person must be able to explain or write on-site.
+- **Good vs bad** - a short example. Each has a **Read more** link to a separate page with more examples and explanations.
+
+> 💡 The word **meaningfully** still applies. A generic class nobody needed, an exception that is caught and ignored, or a `ConcurrentDictionary` in a place where only one thread ever runs does not count.
+
+---
+
+### ⚙️ 1. A relational database and Entity Framework store all the data
+
+**What we check**
+
+- **All** the application's data is stored in a relational database (SQLite, PostgreSQL, SQL Server, MySQL, ...) through Entity Framework Core. No `static List<T>`, JSON files or in-memory collections holding real data.
+- A `DbContext` with a `DbSet` per entity, and relations between entities mapped (navigation properties, foreign keys).
+- The schema comes from **migrations** that are committed to the repository.
+- The connection string comes from configuration, not from the code.
+
+**👥 Every team member** can explain what the `DbContext` is and its lifetime (scoped), what a migration is and how to add one, and show which SQL a query of theirs sends.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: the database behind an interface, one DbContext per request, async queries.
+builder.Services.AddDbContext<StudySpotDbContext>(options => options.UseSqlite(connectionString));
+builder.Services.AddScoped<IStudySessionRepository, EfStudySessionRepository>();
+
+// ❌ BAD: "the database" is a static list, or a DbContext created by hand and kept forever.
+public static List<StudySession> Sessions = new();
+private static readonly StudySpotDbContext Db = new(...);
+```
+
+📖 [Read more](examples/01-database-and-ef.md)
+
+---
+
+### ⚙️ 2. A generic type with a generic method that removes duplication
+
+**What we check**
+
+- A generic type of your **own** (`class Something<T>`, `interface ISomething<T>`) with a generic method, used with **at least two different type arguments** in the app.
+- You can show the **duplication it removed**: the two (or more) near-identical classes or methods that existed, or would have existed, without it.
+- Constraints (`where T : ...`) where the code needs them.
+
+**👥 Every team member** can explain what a type parameter is, why `List<T>` is better than `ArrayList`, what a constraint does, and write a small generic method on-site.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: one paging type instead of one per entity, with a generic method of its own.
+public record Page<T>(IReadOnlyList<T> Items, int PageNumber, int TotalCount)
+{
+    // Turns a page of entities into a page of DTOs without copying the paging logic.
+    public Page<TResult> Map<TResult>(Func<T, TResult> map) => new(Items.Select(map).ToList(), PageNumber, TotalCount);
+}
+// used as Page<StudySession> and Page<Course>, and .Map(s => new StudySessionDto(...))
+
+// ❌ BAD: generic in name only - used with one type, or T is cast back to a concrete type inside.
+public class Helper<T> { public void Do(T item) { var s = (StudySession)(object)item!; /* ... */ } }
+```
+
+📖 [Read more](examples/02-generics.md)
+
+---
+
+### ⚙️ 3. Your own exception type, thrown and meaningfully handled
+
+**What we check**
+
+- At least one exception class of your **own**, deriving from `Exception` (or a more specific .NET exception), with a name that says what went wrong in your app's words.
+- It is **thrown** where the problem is detected, and **handled** with custom logic that does something meaningful: an HTTP status and a message the user can act on, a retry, a fallback - not just swallowed or logged and rethrown.
+
+**👥 Every team member** can explain when to throw an exception vs. return a result, what `try`/`catch`/`finally` and `throw;` vs `throw ex;` do, and where in your app this exception ends up.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: thrown where it's detected, handled once for the whole API.
+throw new StudySessionConflictException(session.Id, ex);
+// ... an IExceptionHandler turns it into 409 Conflict with a problem details body.
+
+// ❌ BAD: caught and ignored, or a custom exception nobody ever catches.
+try { await service.UpdateAsync(id, session, ct); } catch (Exception) { }
+```
+
+📖 [Read more](examples/03-custom-exceptions.md)
+
+---
+
+### ⚙️ 4. `async`/`await`, no IO performed synchronously
+
+**What we check**
+
+- Every IO operation (database, files, HTTP calls) is async and awaited: `ToListAsync`, `SaveChangesAsync`, `ReadLineAsync`, `GetStreamAsync`, ...
+- Async all the way up: controllers/endpoints return `Task<...>`.
+- No `.Result`, `.Wait()` or `async void` (except event handlers).
+- The request's `CancellationToken` is passed down to the IO calls - not just accepted and ignored.
+
+**👥 Every team member** can explain what happens to the thread at an `await`, why `.Result` is bad, and follow one request's `CancellationToken` from the controller to the database call.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD
+public async Task<IReadOnlyList<StudySession>> GetAllAsync(CancellationToken cancellationToken) =>
+    await db.StudySessions.AsNoTracking().ToListAsync(cancellationToken);
+
+// ❌ BAD: synchronous IO, a blocked thread, and a token that goes nowhere.
+public List<StudySession> GetAll(CancellationToken cancellationToken = default) => db.StudySessions.ToList();
+var sessions = service.GetAllAsync(token).Result;
+```
+
+📖 [Read more](examples/04-async-await.md)
+
+---
+
+### ⚙️ 5. A shared memory scenario, handled with concurrent collections or synchronization
+
+**What we check**
+
+- You **identified** a place where several threads (several requests at once, a background service and a request, `Parallel.ForEach`, ...) access the same data in memory.
+- It is made safe with a concurrent collection (`ConcurrentDictionary`, `ConcurrentQueue`, ...), `lock`, `SemaphoreSlim` or `Interlocked` - whichever fits.
+- You can explain what would go wrong **without** it.
+
+**👥 Every team member** can explain what a race condition is, why `Dictionary<,>` or `count++` isn't safe from several threads, and the difference between `lock` and `SemaphoreSlim` (which one works with `await`).
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: a singleton cache shared by all requests.
+private readonly ConcurrentDictionary<string, CourseInfo> _cache = new();
+public CourseInfo Get(string code) => _cache.GetOrAdd(code, LoadCourse);
+
+// ❌ BAD: a singleton with a plain Dictionary written by concurrent requests,
+// or a ConcurrentBag in a scoped service that only one request ever touches.
+private readonly Dictionary<string, CourseInfo> _cache = new();
+```
+
+📖 [Read more](examples/05-shared-memory.md)
+
+---
+
+### ⚙️ 6. Dependency Injection everywhere reasonable
+
+**What we check**
+
+- Services, repositories, the `DbContext`, `HttpClient`s and other **dependencies** come in through constructors and are registered in `Program.cs`.
+- No `new` for a dependency inside a class (`new StudySessionService(...)`, `new HttpClient()`, `new StudySpotDbContext()`).
+- Lifetimes make sense: `DbContext` and what uses it scoped, shared state singleton, no captive dependencies.
+- `new` for **data** (entities, DTOs, value types, exceptions) is fine - those aren't dependencies.
+
+**👥 Every team member** can explain the three lifetimes, what a captive dependency is, and how DI makes a class testable.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD
+public class StudySessionService(IStudySessionRepository repository) : IStudySessionService { /* ... */ }
+
+// ❌ BAD: the controller builds its own dependencies, so a test can't replace them.
+public class StudySessionsController : ControllerBase
+{
+    private readonly StudySessionService _service = new(new EfStudySessionRepository(new StudySpotDbContext()));
+}
+```
+
+📖 [Read more](examples/06-dependency-injection.md)
+
+---
+
+### ⚙️ 7. Unit and integration test coverage of at least 50%
+
+**What we check**
+
+- A test project with **unit tests** (a class on its own, with fakes or mocks for its dependencies) **and integration tests** (the real API, e.g. with `WebApplicationFactory`, against a real database).
+- Line coverage of at least **50%** of **your** code, with generated code (migrations, OpenAPI) excluded. Bring the report.
+- The tests pass, and they **check** results (asserts), not only run code.
+
+**👥 Every team member** wrote tests, can explain the difference between a unit and an integration test, a stub and a mock, and can run the tests and the coverage report on-site.
+
+**Good vs bad**
+
+```csharp
+// ✅ GOOD: a scenario, an action, an assertion about the result.
+[Fact]
+public async Task Update_WithAVersionSomeoneElseAlreadyChanged_Returns409Problem() { /* ... */ Assert.Equal(HttpStatusCode.Conflict, response.StatusCode); }
+
+// ❌ BAD: raises coverage, checks nothing.
+[Fact]
+public async Task GetAll() { await _client.GetAsync("/api/studysessions"); }
+```
+
+📖 [Read more](examples/07-tests-and-coverage.md)
+
+---
+
+### ⚙️ 8. Pull requests and reviews
+
+**What we check** - the same as Deadline 1, counted again for the work since Deadline 1:
+
+- **All** changes reach `main` through pull requests, with no direct pushes.
+- Every PR has a description explaining **what** was done and **why**.
+- **Every** team member authored at least **3 merged PRs** and reviewed at least **3** PRs of teammates since Deadline 1.
+- A review counts only with **meaningful** comments and discussion.
+
+**👥 Every team member** can open any of their PRs and explain it.
+
+📖 [Read more](examples/08-pull-requests-and-reviews.md)
+
+---
+
+### ⚙️ 9. Uniform coding style
+
+**What we check** - the same as Deadline 1: one consistent style everywhere, ideally enforced by tooling (`.editorconfig`, `dotnet format`, a front-end formatter). New code (tests, migrations you wrote by hand, EF configuration) follows it too.
+
+📖 [Read more](examples/09-coding-style.md)
+
+---
+
+## 🗒️ Self-check before the presentation
+
+| # | Requirement | Where in the code (file + line) | Who explains it |
+|---|-------------|----------------------------------|-----------------|
+| 1 | All data in a relational database via EF, migrations committed | | |
+| 2 | Own generic type + generic method, used with 2+ types | | |
+| 3 | Own exception type, thrown and meaningfully handled | | |
+| 4 | async/await for all IO, token passed down | | |
+| 5 | Shared memory scenario + concurrent collection or lock | | |
+| 6 | DI for every dependency, sensible lifetimes | | |
+| 7 | Unit + integration tests, coverage ≥ 50% (report ready) | | |
+| 8 | PRs since Deadline 1: 3 authored + 3 reviewed per member | | |
+| 9 | Uniform coding style | | |
+| - | Deadline 1 requirements still in place, promised fixes done | | |
+
+> 🤖 AI tools are allowed, but you **own** your code: every member must be able to explain and defend any code they submit, including AI-generated code.
