@@ -27,7 +27,7 @@ The playground also has the same API tests written with NUnit and MSTest (`CoolA
 
 Storing StudySpot in a real database with Entity Framework Core, and end-to-end tests with Playwright, come in a later lecture.
 
-Reference Guide: [PSI 2026 Playground PR #12](https://github.com/niku-live/teaching-university-psi-2026-playground/pull/12) (`lectures/08-draft` &rarr; `lectures/08`) has the end result. Start with [WALKTHROUGH-08.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/08-draft/WALKTHROUGH-08.md) for the exact step-by-step. It assumes you've already done [WALKTHROUGH-06.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/06/WALKTHROUGH-06.md); Lecture 7 was the Deadline 1 presentations and had no walkthrough. See [WALKTHROUGHS.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/08-draft/WALKTHROUGHS.md) for the full index.
+Reference Guide: [PSI 2026 Playground PR #12](https://github.com/niku-live/teaching-university-psi-2026-playground/pull/12) (`lectures/08-draft` &rarr; `lectures/08`) has the end result. Start with [WALKTHROUGH-08.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/08/WALKTHROUGH-08.md) for the exact step-by-step. It assumes you've already done [WALKTHROUGH-06.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/06/WALKTHROUGH-06.md); Lecture 7 was the Deadline 1 presentations and had no walkthrough. See [WALKTHROUGHS.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/08/WALKTHROUGHS.md) for the full index.
 
 ## Homework
 
