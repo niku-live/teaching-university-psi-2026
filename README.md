@@ -81,4 +81,4 @@ This repository contains code examples that will be used during lectures to demo
 - [Lecture 05](Lecture05/README.md) - Deadline 1 (Lab Assignment #1) review checklist and detailed examples
 - [Lecture 06](Lecture06/README.md) - SOLID in Practice: a service, a repository and Dependency Injection for StudySpot (next week is Deadline 1)
 - [Lecture 07](Lecture07/README.md) - Deadline 1 (Lab Assignment #1) presentations
-- [Lecture 08](Lecture08/README.md) - Entity Framework Core and async/await: storing StudySpot in a real database (start of Lab Assignment #2)
+- [Lecture 08](Lecture08/README.md) - Automated tests (unit, integration, frontend, coverage), then async/await and cancellation for StudySpot (start of Lab Assignment #2)
