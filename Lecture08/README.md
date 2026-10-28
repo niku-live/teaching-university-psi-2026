@@ -31,4 +31,10 @@ Reference Guide: [PSI 2026 Playground PR #12](https://github.com/niku-live/teach
 
 ## Homework
 
-TBD
+There's no homework for this lecture. If you want to go deeper, the full [WALKTHROUGH-08.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/08/WALKTHROUGH-08.md) is there for optional review:
+
+- Every test from the lecture in full, with the reasoning behind each one: unit tests with a fixed clock, the copying fake, controller tests with NSubstitute stubs and mocks, `WebApplicationFactory` integration tests, Jest + React Testing Library tests, and the combined coverage report.
+- Steps 16-18: the async versions of the tests, which we skipped in class. They include the cancellation test and the controller test that checks the request's `CancellationToken` actually reaches the service.
+- The comparison of xUnit, NUnit and MSTest at the end, with the same tests in each framework in the playground's `CoolApp.Api.Tests.NUnit/` and `CoolApp.Api.Tests.MSTest/` folders.
+
+All of it applies directly to Lab Assignment #2 (*unit and integration tests coverage at least 50%*, *async/await, no synchronous IO*), so it's a good starting point for your own team's tests.
