@@ -82,3 +82,4 @@ This repository contains code examples that will be used during lectures to demo
 - [Lecture 06](Lecture06/README.md) - SOLID in Practice: a service, a repository and Dependency Injection for StudySpot (next week is Deadline 1)
 - [Lecture 07](Lecture07/README.md) - Deadline 1 (Lab Assignment #1) presentations
 - [Lecture 08](Lecture08/README.md) - Automated tests (unit, integration, frontend, coverage), then async/await and cancellation for StudySpot (start of Lab Assignment #2)
+- [Lecture 09](Lecture09/README.md) - A real database with Entity Framework Core (SQLite), then concurrency conflicts, a custom exception and a global exception handler for StudySpot
