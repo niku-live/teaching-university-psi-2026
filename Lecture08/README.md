@@ -2,7 +2,17 @@
 
 ## What was discussed
 
-_TBD - to be filled in after the lecture_
+The practice part revisited this week's testing theory on StudySpot, then started the async refactor with the tests as a safety net (the full step-by-step is below):
+
+- **Repository layout**: the API moved into `CoolApp.Api/` and the React app into `CoolApp.Client/`, side by side, so test projects can live next to them instead of inside the app. Done with `git mv`, so history follows the files. `SpaRoot` is the only link between the two.
+- **Unit tests** with xUnit v3 for `StudySessionService`: Arrange/Act/Assert, `Method_Scenario_ExpectedResult` names, a fixed point in time instead of the real clock, and `[Theory]` for several cases in one test.
+- **A fake repository** that returns copies like a database would. It turned Lecture 6's Liskov warning into a test: breaking `Rate` on purpose made exactly that one test fail, while the test using the in-memory repository still passed.
+- **Controller tests** that call the controller directly with an NSubstitute service, used as a stub (choosing the case) and as a mock (checking how the service was called), plus what these tests can't see.
+- **Integration tests** with `WebApplicationFactory`, running the real API in memory: routing, validation, JSON and Dependency Injection.
+- **Frontend tests** with Jest and React Testing Library in `CoolApp.Client/tests/`: unit tests for the validation function, and component tests that find elements by label and role, with a mocked `fetch`.
+- **Coverage**: one ReportGenerator report for the backend and the frontend. Excluding generated code changes the C# number from about 26% to about 80%, and coverage only shows which lines ran, not what was checked.
+- **async/await and cancellation**: the repository, the service and the controller became async from the bottom up, with a required `CancellationToken` passed down from the request. The updated tests for this stage, including the cancellation test and the token check in the controller tests, were left for optional review at home (WALKTHROUGH-08 steps 16-18).
+- xUnit, NUnit and MSTest were compared. The playground has the same tests in all three frameworks.
 
 ## Step-by-Step Tutorial: Automated Tests, then async/await and Cancellation for StudySpot
 
