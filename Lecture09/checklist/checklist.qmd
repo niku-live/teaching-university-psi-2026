@@ -7,7 +7,7 @@ format:
 
 ## 📅 General info about the deadline
 
-> ⚠️ **IMPORTANT DEADLINE**: 2026-11-18 20:00 (Vilnius time) - week 11
+> ⚠️ **IMPORTANT DEADLINE**: 2026-11-25 20:00 (Vilnius time) - week 12
 
 - Maximum points if completed by the deadline: **1.5**
 - Late submission: **20%** reduction of the maximum mark for each week late.
