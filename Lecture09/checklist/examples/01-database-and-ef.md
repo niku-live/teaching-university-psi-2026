@@ -93,6 +93,6 @@ db.Database.EnsureCreated();
 ## Further reading
 
 - [Theory lecture 8: Persistence and ORM](https://github.com/smagurauskas/software-engineering/blob/main/08-persistence-and-orm.qmd)
-- [StudySpot WALKTHROUGH-09](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09-draft/WALKTHROUGH-09.md)
+- [StudySpot WALKTHROUGH-09](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09/WALKTHROUGH-09.md)
 - [EF Core documentation](https://learn.microsoft.com/en-us/ef/core/)
 - [Migrations overview](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/)

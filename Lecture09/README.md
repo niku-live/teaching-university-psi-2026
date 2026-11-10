@@ -33,13 +33,13 @@ The playground's NUnit and MSTest test projects run the same tests against the d
 
 A generic type, the shared memory scenario with concurrent collections, request/response DTOs and end-to-end tests with Playwright come next lecture.
 
-Reference Guide: [PSI 2026 Playground PR #14](https://github.com/niku-live/teaching-university-psi-2026-playground/pull/14) (`lectures/09-draft` &rarr; `lectures/09`) has the end result. Start with [WALKTHROUGH-09.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09-draft/WALKTHROUGH-09.md) for the exact step-by-step. It assumes you've already done [WALKTHROUGH-08.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/08/WALKTHROUGH-08.md). See [WALKTHROUGHS.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09-draft/WALKTHROUGHS.md) for the full index.
+Reference Guide: [PSI 2026 Playground PR #14](https://github.com/niku-live/teaching-university-psi-2026-playground/pull/14) (`lectures/09-draft` &rarr; `lectures/09`) has the end result. Start with [WALKTHROUGH-09.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09/WALKTHROUGH-09.md) for the exact step-by-step. It assumes you've already done [WALKTHROUGH-08.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/08/WALKTHROUGH-08.md). See [WALKTHROUGHS.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09/WALKTHROUGHS.md) for the full index.
 
 ## Homework
 
 There's no homework for this lecture. Work on Deadline 2 with your team: go through the checklist together and make sure every member can explain each requirement in your own project.
 
-For optional review, follow [WALKTHROUGH-09.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09-draft/WALKTHROUGH-09.md) (see the tutorial section above):
+For optional review, follow [WALKTHROUGH-09.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09/WALKTHROUGH-09.md) (see the tutorial section above):
 
 - Stage 1 (steps 1-8): Entity Framework Core with SQLite, migrations, and integration tests against a real database. This covers the *relational database and Entity Framework* requirement.
 - Stage 2 (steps 9-17): optimistic concurrency, a custom exception and a global exception handler. This covers the *custom exception with meaningful handling* requirement.

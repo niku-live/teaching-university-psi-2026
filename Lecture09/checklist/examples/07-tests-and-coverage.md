@@ -96,5 +96,5 @@ Assert.Single(service.GetUpcoming());   // the sample session "starts tomorrow".
 ## Further reading
 
 - [Theory lecture 7: Testing](https://github.com/smagurauskas/software-engineering/blob/main/07-testing.qmd)
-- [StudySpot WALKTHROUGH-08](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/08/WALKTHROUGH-08.md) and [WALKTHROUGH-09 step 7](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09-draft/WALKTHROUGH-09.md)
+- [StudySpot WALKTHROUGH-08](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/08/WALKTHROUGH-08.md) and [WALKTHROUGH-09 step 7](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09/WALKTHROUGH-09.md)
 - [Integration tests in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests)

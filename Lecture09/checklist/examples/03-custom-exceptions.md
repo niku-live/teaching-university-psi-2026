@@ -112,6 +112,6 @@ try { var s = sessions.First(s => s.Id == id); } catch (InvalidOperationExceptio
 ## Further reading
 
 - [Theory lecture 4: C# basics, Exceptions](https://github.com/smagurauskas/software-engineering/blob/main/04-csharp-basics.qmd)
-- [StudySpot WALKTHROUGH-09, stage 2](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09-draft/WALKTHROUGH-09.md)
+- [StudySpot WALKTHROUGH-09, stage 2](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09/WALKTHROUGH-09.md)
 - [Best practices for exceptions](https://learn.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions)
 - [Handle errors in ASP.NET Core APIs](https://learn.microsoft.com/en-us/aspnet/core/web-api/handle-errors)
