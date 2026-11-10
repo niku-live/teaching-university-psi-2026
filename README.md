@@ -83,3 +83,4 @@ This repository contains code examples that will be used during lectures to demo
 - [Lecture 07](Lecture07/README.md) - Deadline 1 (Lab Assignment #1) presentations
 - [Lecture 08](Lecture08/README.md) - Automated tests (unit, integration, frontend, coverage), then async/await and cancellation for StudySpot (start of Lab Assignment #2)
 - [Lecture 09](Lecture09/README.md) - Deadline 2 review checklist; optional home review: a real database with Entity Framework Core (SQLite), concurrency conflicts, a custom exception and a global exception handler for StudySpot
+- [Lecture 10](Lecture10/README.md) - Code quality checked by the build (analyzers, `.editorconfig`, mutation testing), then request/response DTOs, a generic cache and a shared memory scenario with `ConcurrentDictionary` for StudySpot
