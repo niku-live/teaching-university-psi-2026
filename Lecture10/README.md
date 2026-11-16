@@ -18,7 +18,7 @@ The playground's NUnit and MSTest test projects have the same tests.
 
 End-to-end tests with Playwright are still open from the Beta list.
 
-Reference Guide: [PSI 2026 Playground PR #16](https://github.com/niku-live/teaching-university-psi-2026-playground/pull/16) (`lectures/10-draft` &rarr; `lectures/10`) has the end result. Start with [WALKTHROUGH-10.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/10-draft/WALKTHROUGH-10.md) for the exact step-by-step. It assumes you've already done [WALKTHROUGH-09.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09/WALKTHROUGH-09.md). See [WALKTHROUGHS.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/10-draft/WALKTHROUGHS.md) for the full index.
+Reference Guide: [PSI 2026 Playground PR #16](https://github.com/niku-live/teaching-university-psi-2026-playground/pull/16) (`lectures/10-draft` &rarr; `lectures/10`, merged) has the end result. Start with [WALKTHROUGH-10.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/10/WALKTHROUGH-10.md) for the exact step-by-step. It assumes you've already done [WALKTHROUGH-09.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/09/WALKTHROUGH-09.md). See [WALKTHROUGHS.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/10/WALKTHROUGHS.md) for the full index.
 
 ## Homework
 
