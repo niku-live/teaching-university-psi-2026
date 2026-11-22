@@ -2,9 +2,9 @@
 
 ## What was discussed
 
-_TBD - to be filled in after the lecture_
+Attendance was low, so this material wasn't covered in the lecture. Everything below is **optional reading** for anyone curious: the Deadline 2 readiness map in part 1, and the UI/UX walkthrough in part 2.
 
-## Part 1: Deadline 2 Readiness - Where Each Requirement Lives in StudySpot
+## Optional Reading, Part 1: Deadline 2 Readiness - Where Each Requirement Lives in StudySpot
 
 Deadline 2 is next week (**2026-11-25 20:00**). Lecture 10 was only touched on briefly, so here is the [Deadline 2 checklist](../Lecture09/checklist/checklist.qmd) mapped to real code in the playground. Use it to check your own project: for each row, can every team member find the same thing in **your** code and explain it?
 
@@ -20,9 +20,9 @@ Deadline 2 is next week (**2026-11-25 20:00**). Lecture 10 was only touched on b
 | 8 | Pull requests and reviews | The playground's own PRs, the [PR template](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/main/.github/pull_request_template.md) and [`CONTRIBUTING.md`](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/main/CONTRIBUTING.md) | [03](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/main/WALKTHROUGH-03.md) |
 | 9 | Uniform coding style | [`.editorconfig`](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/main/.editorconfig) and [`Directory.Build.props`](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/main/Directory.Build.props): the build checks the style | [10, stage 1](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/main/WALKTHROUGH-10.md) |
 
-## Part 2: UI/UX in Practice - Seven Small Fixes to One Page
+## Optional Reading, Part 2: UI/UX in Practice - Seven Small Fixes to One Page
 
-The last theory lecture covered [UI/UX](https://github.com/smagurauskas/software-engineering/blob/main/10-ui-ux.qmd): the action cycle (did it work? what do I do next?), the four states of every request, error messages per cause, the peak and the end, and how to measure usability. This part applies it to one real page: the React "Study Sessions" page of StudySpot.
+The last theory lecture covered [UI/UX](https://github.com/smagurauskas/software-engineering/blob/main/10-ui-ux.qmd): the action cycle (did it work? what do I do next?), the four states of every request, error messages per cause, the peak and the end, and how to measure usability. This optional part applies it to one real page: the React "Study Sessions" page of StudySpot.
 
 Every fix starts from a problem the page really had, names the principle from the theory lecture, changes the code, and adds a Jest test that fails before the fix and passes after it. **Every fix is independent**: each one starts from the Lecture 10 code and adds its own test file. You can read them in any order, or skip any of them.
 
@@ -47,4 +47,11 @@ Reference Guide: [PSI 2026 Playground PR #19](https://github.com/niku-live/teach
 
 ## Homework
 
-TBD
+There's no homework for this lecture. Deadline 2 is this week (**2026-11-25 20:00**): use the [Deadline 2 checklist](../Lecture09/checklist/checklist.qmd) and the table in part 1 to check that every requirement is in your code, and that every team member can explain it.
+
+For optional reading, follow [WALKTHROUGH-11.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/11-draft/WALKTHROUGH-11.md). Every step in it is independent, so you can read just one:
+
+- Stage 1 (steps 1-4): what the user sees while waiting, when the server can't be reached, and when something fails. Step 3 (one message per cause) pairs well with the custom exception you need for Deadline 2.
+- Stage 2 (steps 5-7): focus on the field to fix, a clear ending after a create, and an empty list that offers the next step.
+- Step 8 (optional): Lighthouse and the Core Web Vitals.
+- "For Your Project": the theory lecture's task for your team. Walk your main task through the action cycle, fix three problems, and count one metric.
