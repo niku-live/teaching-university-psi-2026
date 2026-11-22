@@ -43,13 +43,13 @@ Every fix starts from a problem the page really had, names the principle from th
 
 The walkthrough ends with the theory lecture's task for your team project: walk your main task through the action cycle, fix three problems (with before/after screenshots), and count one metric from what users do.
 
-Reference Guide: [PSI 2026 Playground PR #19](https://github.com/niku-live/teaching-university-psi-2026-playground/pull/19) (`lectures/11-draft` &rarr; `lectures/11`) has the end result, one commit per fix. Start with [WALKTHROUGH-11.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/11-draft/WALKTHROUGH-11.md) for the exact step-by-step. It assumes a project at the state of [WALKTHROUGH-10.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/main/WALKTHROUGH-10.md) (or any from [WALKTHROUGH-08.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/main/WALKTHROUGH-08.md) on). See [WALKTHROUGHS.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/11-draft/WALKTHROUGHS.md) for the full index.
+Reference Guide: [PSI 2026 Playground PR #19](https://github.com/niku-live/teaching-university-psi-2026-playground/pull/19) (`lectures/11-draft` &rarr; `lectures/11`, merged) has the end result, one commit per fix in its Commits tab. Start with [WALKTHROUGH-11.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/11/WALKTHROUGH-11.md) for the exact step-by-step. It assumes a project at the state of [WALKTHROUGH-10.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/main/WALKTHROUGH-10.md) (or any from [WALKTHROUGH-08.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/main/WALKTHROUGH-08.md) on). See [WALKTHROUGHS.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/11/WALKTHROUGHS.md) for the full index.
 
 ## Homework
 
 There's no homework for this lecture. Deadline 2 is this week (**2026-11-25 20:00**): use the [Deadline 2 checklist](../Lecture09/checklist/checklist.qmd) and the table in part 1 to check that every requirement is in your code, and that every team member can explain it.
 
-For optional reading, follow [WALKTHROUGH-11.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/11-draft/WALKTHROUGH-11.md). Every step in it is independent, so you can read just one:
+For optional reading, follow [WALKTHROUGH-11.md](https://github.com/niku-live/teaching-university-psi-2026-playground/blob/lectures/11/WALKTHROUGH-11.md). Every step in it is independent, so you can read just one:
 
 - Stage 1 (steps 1-4): what the user sees while waiting, when the server can't be reached, and when something fails. Step 3 (one message per cause) pairs well with the custom exception you need for Deadline 2.
 - Stage 2 (steps 5-7): focus on the field to fix, a clear ending after a create, and an empty list that offers the next step.
