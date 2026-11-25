@@ -85,3 +85,4 @@ This repository contains code examples that will be used during lectures to demo
 - [Lecture 09](Lecture09/README.md) - Deadline 2 review checklist; optional home review: a real database with Entity Framework Core (SQLite), concurrency conflicts, a custom exception and a global exception handler for StudySpot
 - [Lecture 10](Lecture10/README.md) - Optional reading: code quality checked by the build (analyzers, `.editorconfig`, mutation testing), then request/response DTOs, a generic cache and a shared memory scenario with `ConcurrentDictionary` for StudySpot
 - [Lecture 11](Lecture11/README.md) - Optional reading: Deadline 2 readiness: where each requirement lives in StudySpot, then UI/UX in practice: seven independent fixes to the sessions page (loading states, errors per cause, focus, a clear ending, empty states)
+- [Lecture 12](Lecture12/README.md) - Deadline 2 (Lab Assignment #2) presentations
